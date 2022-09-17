@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<!-- Copyright 2020 NXP -->
+	<sdks>
+		<sdk
+			basePath="${S32K14x_AMMCLIB_v1.1.20}"
+			cores="S32K144::,S32K148::,S32K142::,S32K146::"
+			description="Automotive Math and Motor Control Library Set for S32K14x devices, supporting the ARM M4 core based devices"
+			internalPath="false"
+			name="S32K14x_AMMCLIB"
+			version="1.1.20">
+			<fragments>
+				<fragment id="gcc_options_app_lib" name="gcc_options_app_lib" >
+					<actions>
+						<attachActions executionStep="before">
+							<setOptionValue id="com.nxp.s32ds.cle.arm.mbs.arm32.bare.option.target.fpu.abi" value="com.nxp.s32ds.cle.arm.mbs.arm32.bare.option.target.fpu.abi.hard"/>
+							<setOptionValue id="com.nxp.s32ds.cle.arm.mbs.arm32.bare.option.target.fpu.unit" value="com.nxp.s32ds.cle.arm.mbs.arm32.bare.option.target.fpu.unit.fpv4spd16"/>
+							<setOptionValue id="gnu.c.compiler.option.dialect.std" value="gnu.c.compiler.dialect.c99"/>
+							<setOptionValue id="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.c.compiler.option.target.instructionset" value="com.nxp.s32ds.cle.arm.mbs.arm32.bare.tool.c.compiler.option.target.instructionset.thumb"/>
+						</attachActions>
+					</actions>
+				</fragment>
+				<fragment id="ghs_options_app" name="ghs_options_app" >
+					<actions>
+						<attachActions executionStep="before">
+							<setOptionValue id="ghs.managedmake.arm.executable.toolchain.cc_linker.target_floating_point.floating_point_mode" value="ghs.managedmake.arm.executable.toolchain.cc_linker.target_floating_point.floating_point_mode.hardware_single_software_double"/>
+							<setOptionValue id="ghs.managedmake.arm.executable.toolchain.cc_linker.target_floating_point.floating_point_coprocessor_version" value="ghs.managedmake.arm.executable.toolchain.cc_linker.target_floating_point.floating_point_coprocessor_version.vfp_v4_16_double_registers"/>
+							<setOptionValue id="ghs.managedmake.arm.executable.toolchain.cc_linker.c_cplusplus_compiler.c_language_dialect" value="ghs.managedmake.arm.executable.toolchain.cc_linker.c_cplusplus_compiler.c_language_dialect.iso_c99"/>
+							<setOptionValue id="ghs.managedmake.arm.executable.toolchain.cc_compiler.c_cplusplus_compiler.c_language_dialect" value="ghs.managedmake.arm.executable.toolchain.cc_compiler.c_cplusplus_compiler.c_language_dialect.iso_c99"/>
+							<setOptionValue id="ghs.managedmake.arm.executable.toolchain.cc_compiler.target_instruction_set.thumb_code_generation" value="ghs.managedmake.arm.executable.toolchain.cc_compiler.target_instruction_set.thumb_code_generation.on"/>
+						</attachActions>
+					</actions>
+				</fragment>
+				<fragment id="ghs_options_lib" name="ghs_options_lib" >
+					<actions>
+						<attachActions executionStep="before">
+							<setOptionValue id="ghs.managedmake.arm.static_library.toolchain.cc_linker.target_floating_point.floating_point_coprocessor_version" value="ghs.managedmake.arm.static_library.toolchain.cc_linker.target_floating_point.floating_point_coprocessor_version.vfp_v4_16_double_registers"/>
+							<setOptionValue id="ghs.managedmake.arm.static_library.toolchain.cc_linker.target_floating_point.floating_point_mode" value="ghs.managedmake.arm.static_library.toolchain.cc_linker.target_floating_point.floating_point_mode.hardware_single_software_double"/>
+							<setOptionValue id="ghs.managedmake.arm.static_library.toolchain.cc_linker.c_cplusplus_compiler.c_language_dialect" value="ghs.managedmake.arm.static_library.toolchain.cc_linker.c_cplusplus_compiler.c_language_dialect.iso_c99"/>
+							<setOptionValue id="ghs.managedmake.arm.static_library.toolchain.cc_compiler.c_cplusplus_compiler.c_language_dialect" value="ghs.managedmake.arm.static_library.toolchain.cc_compiler.c_cplusplus_compiler.c_language_ddialect.iso_c99"/>
+							<setOptionValue id="ghs.managedmake.arm.static_library.toolchain.cc_compiler.target_instruction_set.thumb_code_generation" value="ghs.managedmake.arm.static_library.toolchain.cc_compiler.target_instruction_set.thumb_code_generation.on"/>
+						</attachActions>
+					</actions>
+				</fragment>
+				<fragment id="iar_options_app_lib" name="iar_options_app_lib" >
+					<actions>
+						<attachActions executionStep="before">
+							<setOptionValue id="iar.arm.toolchain.option.OGFpuProcessor::descriptor.v8.0.0" value="iar.arm.toolchain.option.OGFpuProcessor::descriptor.TaChipInfo::PossibleFPUs::kVFPv4sp.v8.0.0"/>
+							<setOptionValue id="iar.arm.toolchain.option.OGFpuProcessor::descriptor2.v8.0.0" value="iar.arm.toolchain.option.OGFpuProcessor::descriptor2.TaChipInfo::MaxFPUregs::kVFP_D16.v8.0.0"/>
+							<setOptionValue id="iar.arm.toolchain.compiler.option.cppInlineSemantics.v8.0.0" value="true"/>
+						</attachActions>
+					</actions>
+				</fragment>
+			</fragments>
+			<headerFolder
+				copy="false"
+				path="include">
+			</headerFolder>
+			<resourceFile
+				copy="true"
+				copyToProjectPath="include"
+				path="SWLIBS_Config/SWLIBS_Config.h"
+				toOpen="true">
+			</resourceFile>
+			<resourceFile
+				copy="true"
+				copyToProjectPath="/"
+				path="README.txt"
+				toOpen="true">
+			</resourceFile>
+			<toolchain alias="Debug (GCC) App" id="com.nxp.s32ds.cle.arm.mbs.arm32.bare.toolchain.debug">
+				<fragmentRef id="gcc_options_app_lib" />
+				<binaryFile
+					copy="false"
+					path="lib/s32ds_arm32/S32K14x_AMMCLIB.a">
+				</binaryFile>
+			</toolchain>
+			<toolchain alias="Release (GCC) App" id="com.nxp.s32ds.cle.arm.mbs.arm32.bare.toolchain.release">
+				<fragmentRef id="gcc_options_app_lib" />
+				<binaryFile
+					copy="false"
+					path="lib/s32ds_arm32/S32K14x_AMMCLIB.a">
+				</binaryFile>
+			</toolchain>
+			<toolchain alias="Debug_RAM (GCC) App" id="com.nxp.s32ds.cle.arm.mbs.arm32.bare.toolchain.debug.ram">
+				<fragmentRef id="gcc_options_app_lib" />
+				<binaryFile
+					copy="false"
+					path="lib/s32ds_arm32/S32K14x_AMMCLIB.a">
+				</binaryFile>
+			</toolchain>
+			<toolchain alias="Release_RAM (GCC) App" id="com.nxp.s32ds.cle.arm.mbs.arm32.bare.toolchain.release.ram">
+				<fragmentRef id="gcc_options_app_lib" />
+				<binaryFile
+					copy="false"
+					path="lib/s32ds_arm32/S32K14x_AMMCLIB.a">
+				</binaryFile>
+			</toolchain>
+			<toolchain alias="Debug (GCC) Lib" id="com.nxp.s32ds.cle.arm.mbs.arm32.bare.toolchain.lib.debug">
+				<fragmentRef id="gcc_options_app_lib" />
+				<binaryFile
+					copy="false"
+					path="lib/s32ds_arm32/S32K14x_AMMCLIB.a">
+				</binaryFile>
+			</toolchain>
+			<toolchain alias="Release (GCC) Lib" id="com.nxp.s32ds.cle.arm.mbs.arm32.bare.toolchain.lib.release">
+				<fragmentRef id="gcc_options_app_lib" />
+				<binaryFile
+					copy="false"
+					path="lib/s32ds_arm32/S32K14x_AMMCLIB.a">
+				</binaryFile>
+			</toolchain>
+			<toolchain alias="Debug (GHS) App" id="com.nxp.s32ds.cle.arm.mbs.ghs.toolchain.debug">
+				<fragmentRef id="ghs_options_app" />
+				<binaryFile
+					copy="false"
+					path="lib/ghs/S32K14x_AMMCLIB.a">
+				</binaryFile>
+			</toolchain>
+			<toolchain alias="Release (GHS) App" id="com.nxp.s32ds.cle.arm.mbs.ghs.toolchain.release">
+				<fragmentRef id="ghs_options_app" />
+				<binaryFile
+					copy="false"
+					path="lib/ghs/S32K14x_AMMCLIB.a">
+				</binaryFile>
+			</toolchain>
+			<toolchain alias="Debug_RAM (GHS) App" id="com.nxp.s32ds.cle.arm.mbs.ghs.toolchain.debug.ram">
+				<fragmentRef id="ghs_options_app" />
+				<binaryFile
+					copy="false"
+					path="lib/ghs/S32K14x_AMMCLIB.a">
+				</binaryFile>
+			</toolchain>
+			<toolchain alias="Release_RAM (GHS) App" id="com.nxp.s32ds.cle.arm.mbs.ghs.toolchain.release.ram">
+				<fragmentRef id="ghs_options_app" />
+				<binaryFile
+					copy="false"
+					path="lib/ghs/S32K14x_AMMCLIB.a">
+				</binaryFile>
+			</toolchain>
+			<toolchain alias="Debug (GHS) Lib" id="com.nxp.s32ds.cle.arm.mbs.ghs.toolchain.debug.lib">
+				<fragmentRef id="ghs_options_lib" />
+				<binaryFile
+					copy="false"
+					path="lib/ghs/S32K14x_AMMCLIB.a">
+				</binaryFile>
+			</toolchain>
+			<toolchain alias="Release (GHS) Lib" id="com.nxp.s32ds.cle.arm.mbs.ghs.toolchain.release.lib">
+				<fragmentRef id="ghs_options_lib" />
+				<binaryFile
+					copy="false"
+					path="lib/ghs/S32K14x_AMMCLIB.a">
+				</binaryFile>
+			</toolchain>
+			<toolchain alias="Debug/Debug_RAM (IAR) App" id="iar.arm.toolchain.project.exe.configuration.debug.toolchain.v8.0.0">
+				<fragmentRef id="iar_options_app_lib" />
+				<binaryFile
+					copy="false"
+					path="lib/iar/S32K14x_AMMCLIB.a">
+				</binaryFile>
+			</toolchain>
+			<toolchain alias="Release (IAR) App" id="iar.arm.toolchain.project.exe.configuration.release.toolchain.v8.0.0">
+				<fragmentRef id="iar_options_app_lib" />
+				<binaryFile
+					copy="false"
+					path="lib/iar/S32K14x_AMMCLIB.a">
+				</binaryFile>
+			</toolchain>
+			<toolchain alias="Debug (IAR) Lib" id="iar.arm.toolchain.project.library.configuration.debug.toolchain.v8.0.0">
+				<fragmentRef id="iar_options_app_lib" />
+				<binaryFile
+					copy="false"
+					path="lib/iar/S32K14x_AMMCLIB.a">
+				</binaryFile>
+			</toolchain>
+			<toolchain alias="Release (IAR) Lib" id="iar.arm.toolchain.project.library.configuration.release.toolchain.v8.0.0">
+				<fragmentRef id="iar_options_app_lib" />
+				<binaryFile
+					copy="false"
+					path="lib/iar/S32K14x_AMMCLIB.a">
+				</binaryFile>
+			</toolchain>
+		</sdk>
+	</sdks>
